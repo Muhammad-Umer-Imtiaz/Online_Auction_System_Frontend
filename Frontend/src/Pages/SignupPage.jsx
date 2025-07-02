@@ -11,6 +11,7 @@ const SignupPage = () => {
   const [address, setAddress] = useState('');
   const [accountNo, setAccountNo] = useState('');
   const [accountName, setAccountName] = useState('');
+  const [accountType, setAccountType] = useState('');
   const [profileImage, setProfileImage] = useState(null);
   const [profilePreview, setProfilePreview] = useState('');
 
@@ -29,6 +30,7 @@ const SignupPage = () => {
     formData.append("address", address);
     formData.append("accountNo", accountNo);
     formData.append("accountName", accountName);
+    formData.append("accountType", accountType);
     if (profileImage) formData.append("profileImage", profileImage);
 
     dispatch(register(formData));
@@ -121,6 +123,21 @@ const SignupPage = () => {
               onChange={(e) => setAccountName(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
             />
+            <select
+              value={accountType}
+              onChange={(e) => setAccountType(e.target.value)}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            >
+              <option value="" disabled>Select Account Type</option>
+              <option value="Easypaisa">Easypaisa</option>
+              <option value="JazzCash">JazzCash</option>
+              <option value="SadaPay">SadaPay</option>
+              <option value="Meezan Bank">Meezan Bank</option>
+              <option value="HBL Bank">HBL Bank</option>
+              <option value="Bank AlFalah">Bank AlFalah</option>
+              <option value="Al Faisal Bank">Al Faisal Bank</option>
+            </select>
             <input
               type="file"
               accept="image/*"

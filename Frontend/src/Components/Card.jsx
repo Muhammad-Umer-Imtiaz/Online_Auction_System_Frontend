@@ -58,7 +58,7 @@ const Card = ({ imgSrc, title, startingBid, startTime, endTime, id , currentBid}
       <img
         src={imageUrl}
         alt={title}
-        className="w-full aspect-[4/3]  rounded-t-md"
+        className="w-full aspect-[4/3]  rounded-t-md border-b-1 border-gray-400"
       />
       <div className="px-2 pt-4 pb-2">
         <h5 className="font-semibold text-[18px] group-hover:text-[#d6482b] mb-2">
@@ -67,20 +67,26 @@ const Card = ({ imgSrc, title, startingBid, startTime, endTime, id , currentBid}
 
         {startingBid && (
           <p className="text-stone-600 font-light">
-            Starting Bid:
+            Starting Bid :
             <span className="text-[#fdba88] font-bold ml-1">
               {startingBid}
             </span>
           </p>
         )}
-        {currentBid && (
-          <p className="text-stone-600 font-light">
-            currentBid:
-            <span className="text-[#fdba88] font-bold ml-1">
-              {startingBid}
-            </span>
-          </p>
-        )}
+        {currentBid ? (
+  <p className="text-stone-600 font-light">
+    Current Bid:
+    <span className="text-[#fdba88] font-bold ml-1">
+      {currentBid}
+    </span>
+  </p>
+) : (
+  <p className="text-stone-600 font-light">
+    Current Bid:
+    <span className="text-[#fdba88] font-bold ml-1">0</span>
+  </p>
+)}
+
 
         <p className="text-stone-600 font-light">
           {timeLeft.type}

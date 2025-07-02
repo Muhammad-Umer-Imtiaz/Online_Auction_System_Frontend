@@ -93,7 +93,7 @@ const AdminSidebar = () => {
             <Send className="w-5 h-5" />
             <span className="hidden md:inline">Payment Proofs</span>
           </NavLink>
-          <NavLink to="/user/update-password" className={navLinkStyles}>
+          <NavLink to="/admin/update-password" className={navLinkStyles}>
             <TbPasswordUser className="w-5 h-5" />
             <span className="hidden md:inline">Update Password</span>
           </NavLink>

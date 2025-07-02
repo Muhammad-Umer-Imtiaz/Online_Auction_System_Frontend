@@ -9,7 +9,7 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <section className=" py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
         {/* Left: Text Content */}
         <div className="w-full md:w-1/2 text-center md:text-left space-y-6">
@@ -58,7 +58,7 @@ const HeroSection = () => {
           <img
             src={Hero}
             alt="Auction Hero"
-            className="w-full h-auto rounded-xl shadow"
+            className="w-full h-auto rounded-xl "
           />
         </div>
       </div>

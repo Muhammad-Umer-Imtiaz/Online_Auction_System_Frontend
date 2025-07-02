@@ -87,7 +87,7 @@ const App = () => {
         </div>
 
         {/* Footer always at bottom */}
-        <Footer />
+        <Footer  />
       </div>
 
       <ToastContainer position='top-right' />

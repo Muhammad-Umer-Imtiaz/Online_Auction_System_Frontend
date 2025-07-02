@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Card from '../Components/Card';
 import Spinner from '../Components/Spinner';
+import { CiSearch } from 'react-icons/ci';
 
 const AuctionPage = () => {
   const { allAuctions, loading } = useSelector((state) => state.auction);
@@ -12,7 +13,7 @@ const AuctionPage = () => {
   const auctionsPerPage = 12;
 
   const filteredAuctions = allAuctions
-    .filter((auction) =>
+    ?.filter((auction) =>
       auction.title.toLowerCase().includes(searchQuery.toLowerCase())
     )
     .filter((auction) => {
@@ -62,13 +63,17 @@ const AuctionPage = () => {
 
           {/* Search & Filters */}
           <div className="flex flex-wrap justify-between items-center mb-6 gap-4">
-            <input
-              type="text"
-              placeholder="Search auctions..."
-              className="w-full sm:w-1/2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            <div className="relative w-full sm:w-1/2">
+              <input
+                type="text"
+                placeholder="Search auctions..."
+                className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <CiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-500 text-xl" />
+            </div>
+
             <select
               className="w-full sm:w-1/4 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={filter}
@@ -95,7 +100,7 @@ const AuctionPage = () => {
                   endTime={auction.endTime}
                   imgSrc={auction.images}
                   startingBid={auction.startingBid}
-                  currentBid = {auction.currentBid}
+                  currentBid={auction.currentBid}
                 />
               ))
             ) : (

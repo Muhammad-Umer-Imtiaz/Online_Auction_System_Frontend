@@ -23,8 +23,8 @@ const Leaderboard = () => {
       </div>
 
       <div className="overflow-x-auto rounded-lg shadow-md">
-        <table className="min-w-[700px] w-full bg-white border border-gray-200">
-          <thead className="bg-gray-100 text-left text-gray-700 text-sm uppercase">
+        <table className="min-w-[700px] w-full  border border-gray-200">
+          <thead className="backdrop-blur-md py-1 text-left text-gray-700 text-sm uppercase">
             <tr>
               <th className="py-3 px-4">#</th>
               <th className="py-3 px-4">Profile</th>

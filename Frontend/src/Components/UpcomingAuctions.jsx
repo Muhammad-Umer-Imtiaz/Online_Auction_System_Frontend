@@ -50,10 +50,10 @@ const UpcomingAuctions = () => {
   });
 
   return (
-    <section className="w-full px-4 py-10 lg:px-12 bg-[#f9f9f9] min-h-[60vh]">
+    <section className="w-full px-4 py-10 lg:px-12 min-h-[60vh]">
       <div className="text-center mb-8">
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
-          🔥 Upcoming Auctions
+          🔥 Upcoming Auctions and Today Auction
         </h2>
         <p className="text-gray-600 text-base sm:text-lg">
           Don't miss out – grab your chance to win!
