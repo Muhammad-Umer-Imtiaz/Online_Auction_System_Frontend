@@ -86,7 +86,7 @@ const App = () => {
           </Routes>
         </div>
 
-        {/* Footer always at bottom */}
+        {/* Footer */}
         <Footer  />
       </div>
 
