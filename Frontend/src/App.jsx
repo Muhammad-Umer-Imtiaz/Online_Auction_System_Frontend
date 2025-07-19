@@ -30,7 +30,7 @@ import DashboardUser from './Pages/AdminDashboard/DashboardUser';
 import UpdatePassword from './Pages/UserDashboard/UpdatePassword';
 import ForgetPassword from './Pages/ForgetPassword';
 import ResetPassword from './Pages/ResetPassword';
-import UpcomingAuctions from './Components/UpcomingAuctions';
+import UpcomingAuction from './Components/UpcomingAuction';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -56,7 +56,7 @@ const App = () => {
             <Route path='/auction' element={<AuctionPage />} />
             <Route path='/auction/item/:id' element={<SingleAuctionDetail />} />
             <Route path='/contact' element={<Contact />} />
-            <Route path='/upcoming-auction' element={<UpcomingAuctions />} />
+            <Route path='/upcoming-auction' element={<UpcomingAuction />} />
             <Route path="/password/forgot" element={<ForgetPassword />} />
             <Route path="/password/reset/:token" element={<ResetPassword />} />
             {/* User Dashboard Routes */}

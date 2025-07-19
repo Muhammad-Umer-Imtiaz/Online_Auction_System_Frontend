@@ -40,7 +40,7 @@ const AuctionCard = ({ auction }) => {
 };
 
 // Main Component
-const UpcomingAuctions = () => {
+const UpcomingAuction = () => {
   const { allAuctions } = useSelector((state) => state.auction);
 
   const now = new Date();
@@ -77,4 +77,4 @@ const UpcomingAuctions = () => {
   );
 };
 
-export default UpcomingAuctions;
+export default UpcomingAuction;

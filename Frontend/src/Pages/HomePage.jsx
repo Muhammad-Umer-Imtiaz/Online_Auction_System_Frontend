@@ -3,8 +3,7 @@ import HeroSection from '../Components/HeroSection'
 import HowItWork from '../Components/how_it_Work'
 import Leaderboard from '../Components/Leaderboard'
 import FeaturedAuctions from '../Components/FeaturedAuctions'
-import UpcomingAuctions from '../Components/upcomingAuctions'
-import { motion } from 'framer-motion'
+import UpcomingAuction from '../Components/UpcomingAuction'
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i = 1) => ({
@@ -47,7 +46,7 @@ const HomePage = () => {
         viewport={{ once: true }}
         custom={2}
       >
-        <UpcomingAuctions />
+        <UpcomingAuction />
       </motion.div>
 
       <motion.div
