@@ -29,7 +29,9 @@ const categorySlice = createSlice({
 export const getAllCategories = () => async (dispatch) => {
   dispatch(categorySlice.actions.categoryRequest());
   try {
-    const res = await axios.get("http://localhost:5000/api/v1/category/getall");
+    const res = await axios.get(
+      "https://online-auction-system-backend-pcyr.onrender.com/api/v1/category/getall"
+    );
     dispatch(categorySlice.actions.getAllCategorySuccess(res.data.categories));
   } catch (error) {
     dispatch(categorySlice.actions.categoryFailed());
@@ -41,7 +43,7 @@ export const createCategory = (data) => async (dispatch) => {
   dispatch(categorySlice.actions.categoryRequest());
   try {
     const res = await axios.post(
-      "http://localhost:5000/api/v1/category/new",
+      "https://online-auction-system-backend-pcyr.onrender.com/api/v1/category/new",
       data,
       { withCredentials: true }
     );
@@ -57,7 +59,7 @@ export const updateCategory = (id, data) => async (dispatch) => {
   dispatch(categorySlice.actions.categoryRequest());
   try {
     const res = await axios.put(
-      `http://localhost:5000/api/v1/category/update/${id}`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/category/update/${id}`,
       data,
       { withCredentials: true }
     );
@@ -74,7 +76,7 @@ export const deleteCategory = (id) => async (dispatch) => {
   dispatch(categorySlice.actions.categoryRequest());
   try {
     const res = await axios.delete(
-      `http://localhost:5000/api/v1/category/delete/${id}`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/category/delete/${id}`,
       { withCredentials: true }
     );
     dispatch(categorySlice.actions.categorySuccess());

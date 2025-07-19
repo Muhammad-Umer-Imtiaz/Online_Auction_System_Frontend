@@ -138,7 +138,7 @@ export const register = (data) => async (dispatch) => {
   dispatch(userSlice.actions.registerRequest());
   try {
     const res = await axios.post(
-      `http://localhost:5000/api/v1/user/register`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/user/register`,
       data,
       {
         withCredentials: true,
@@ -163,7 +163,7 @@ export const login = (data) => async (dispatch) => {
   dispatch(userSlice.actions.loginRequest());
   try {
     const res = await axios.post(
-      `http://localhost:5000/api/v1/user/login`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/user/login`,
       data,
       {
         withCredentials: true,
@@ -187,9 +187,12 @@ export const login = (data) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
     dispatch(userSlice.actions.logoutRequest());
-    const res = await axios.get(`http://localhost:5000/api/v1/user/logout`, {
-      withCredentials: true,
-    });
+    const res = await axios.get(
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/user/logout`,
+      {
+        withCredentials: true,
+      }
+    );
     dispatch(userSlice.actions.logoutSuccess());
     toast.success(res.data.message);
   } catch (error) {
@@ -206,9 +209,12 @@ export const logout = () => async (dispatch) => {
 export const loadUser = () => async (dispatch) => {
   dispatch(userSlice.actions.loadUserRequest());
   try {
-    const res = await axios.get("http://localhost:5000/api/v1/user/me", {
-      withCredentials: true,
-    });
+    const res = await axios.get(
+      "https://online-auction-system-backend-pcyr.onrender.com/api/v1/user/me",
+      {
+        withCredentials: true,
+      }
+    );
     dispatch(userSlice.actions.loadUserSuccess(res.data.user));
   } catch (error) {
     dispatch(
@@ -224,7 +230,7 @@ export const fetchLeaderboard = () => async (dispatch) => {
   dispatch(fetchLeaderboardRequest());
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/user/leaderboard`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/user/leaderboard`,
       {
         withCredentials: true,
       }
@@ -241,7 +247,7 @@ export const updateUserProfile = (formData) => async (dispatch) => {
   dispatch(userSlice.actions.updateProfileRequest());
   try {
     const res = await axios.put(
-      `http://localhost:5000/api/v1/user/update-profile`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/user/update-profile`,
       formData,
       {
         withCredentials: true,
@@ -261,7 +267,7 @@ export const updatePassword = (formData) => async (dispatch) => {
   dispatch(userSlice.actions.updatePasswordrequest());
   try {
     const res = await axios.put(
-      `http://localhost:5000/api/v1/user/update-password`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/user/update-password`,
       formData,
       { withCredentials: true }
     );
@@ -276,7 +282,7 @@ export const forgetPassword = (email) => async (dispatch) => {
   dispatch(userSlice.actions.forgetPasswordRequest());
   try {
     const res = await axios.post(
-      `http://localhost:5000/api/v1/user/password/forgot`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/user/password/forgot`,
       { email },
       {
         withCredentials: true,
@@ -301,7 +307,7 @@ export const resetPassword = (token, password) => async (dispatch) => {
   dispatch(userSlice.actions.resetPasswordRequest());
   try {
     const res = await axios.put(
-      `http://localhost:5000/api/v1/user/password/reset/${token}`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/user/password/reset/${token}`,
       { password },
       {
         withCredentials: true,
@@ -339,12 +345,11 @@ export const {
   updateProfileSuccess,
   updateProfileFailed,
   forgetPasswordRequest,
-forgetPasswordSuccess,
-forgetPasswordFailed,
-resetPasswordRequest,
-resetPasswordSuccess,
-resetPasswordFailed,
-
+  forgetPasswordSuccess,
+  forgetPasswordFailed,
+  resetPasswordRequest,
+  resetPasswordSuccess,
+  resetPasswordFailed,
 } = userSlice.actions;
 
 export default userSlice.reducer;

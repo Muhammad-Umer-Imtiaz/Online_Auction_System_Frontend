@@ -129,7 +129,7 @@ export const getMonthlyRevenue = () => async (dispatch) => {
   dispatch(superAdminSlice.actions.requestForMonthlyRevenue());
   try {
     const response = await axios.get(
-      "http://localhost:5000/api/v1/admin/monthlyincome",
+      "https://online-auction-system-backend-pcyr.onrender.com/api/v1/admin/monthlyincome",
       { withCredentials: true }
     );
     toast.success(response.data.success);
@@ -149,7 +149,7 @@ export const getAllUsers = () => async (dispatch) => {
   dispatch(superAdminSlice.actions.requestForAllUsers());
   try {
     const response = await axios.get(
-      "http://localhost:5000/api/v1/admin/users/getall",
+      "https://online-auction-system-backend-pcyr.onrender.com/api/v1/admin/users/getall",
       { withCredentials: true }
     );
     console.log(response);
@@ -168,7 +168,7 @@ export const getAllPaymentProofs = () => async (dispatch) => {
   dispatch(superAdminSlice.actions.requestForPaymentProofs());
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/admin/paymentproofs/getall`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/admin/paymentproofs/getall`,
       { withCredentials: true }
     );
     console.log(response);
@@ -188,7 +188,7 @@ export const deletePaymentProof = (id) => async (dispatch) => {
   dispatch(superAdminSlice.actions.requestForDeletePaymentProof());
   try {
     const response = await axios.delete(
-      `http://localhost:5000/api/v1/admin/paymentproof/delete/${id}`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/admin/paymentproof/delete/${id}`,
       { withCredentials: true }
     );
     dispatch(superAdminSlice.actions.successForDeletePaymentProof());
@@ -205,7 +205,7 @@ export const getSinglePaymentProofDetail = (id) => async (dispatch) => {
   dispatch(superAdminSlice.actions.requestForSinglePaymentProofDetail());
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/admin/paymentproof/${id}`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/admin/paymentproof/${id}`,
       { withCredentials: true }
     );
     dispatch(
@@ -223,7 +223,7 @@ export const updatePaymentProof = (id, status, amount) => async (dispatch) => {
   dispatch(superAdminSlice.actions.requestForUpdatePaymentProof());
   try {
     const response = await axios.put(
-      `http://localhost:5000/api/v1/admin/paymentproof/status/update/${id}`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/admin/paymentproof/status/update/${id}`,
       { status, amount },
       {
         withCredentials: true,
@@ -245,7 +245,7 @@ export const deleteAuctionItem = (id) => async (dispatch) => {
   dispatch(superAdminSlice.actions.requestForAuctionItemDelete());
   try {
     const response = await axios.delete(
-      `http://localhost:5000/api/v1/admin/auctionitem/delete/${id}`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/admin/auctionitem/delete/${id}`,
       { withCredentials: true }
     );
     dispatch(superAdminSlice.actions.successForAuctionItemDelete());
@@ -261,7 +261,7 @@ export const getUserForDashboard = () => async (dispatch) => {
   dispatch(superAdminSlice.actions.requestForGetUsers());
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/admin/getuser`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/admin/getuser`,
       { withCredentials: true }
     );
     dispatch(superAdminSlice.actions.successForGetUsers(response.data.users));
@@ -274,7 +274,7 @@ export const deleteUser = (id) => async (dispatch) => {
   dispatch(superAdminSlice.actions.requestForDeletUser());
   try {
     const res = await axios.delete(
-      `http://localhost:5000/api/v1/admin/deleteuser/${id}`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/admin/deleteuser/${id}`,
       { withCredentials: true }
     );
     dispatch(superAdminSlice.actions.successForDeletUser());

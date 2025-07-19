@@ -93,7 +93,7 @@ export const getAllAuctionItems = () => async (dispatch) => {
   dispatch(auctionSlice.actions.getAllAuctionItemRequest());
   try {
     const response = await axios.get(
-      "http://localhost:5000/api/v1/auction/allitems",
+      "https://online-auction-system-backend-pcyr.onrender.com/api/v1/auction/allitems",
       {
         withCredentials: true,
       }
@@ -111,10 +111,10 @@ export const getAuctionDetail = (id) => async (dispatch) => {
   dispatch(auctionSlice.actions.getAuctionDetailRequest());
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/auction/myitems/${id}`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/auction/myitems/${id}`,
       { withCredentials: true }
     );
-    console.log(response.data)
+    console.log(response.data);
     dispatch(auctionSlice.actions.getAuctionDetailSuccess(response.data));
   } catch (error) {
     dispatch(auctionSlice.actions.getAuctionDetailFailed());
@@ -125,7 +125,7 @@ export const createAuction = (data) => async (dispatch) => {
   dispatch(auctionSlice.actions.createAuctionRequest());
   try {
     const response = await axios.post(
-      `http://localhost:5000/api/v1/auction/create`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/auction/create`,
       data,
       {
         withCredentials: true,
@@ -146,20 +146,20 @@ export const getMyAuctionItems = () => async (dispatch) => {
   dispatch(auctionSlice.actions.getMyAuctionsRequest());
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/auction/myauctions`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/auction/myauctions`,
       { withCredentials: true }
     );
     dispatch(auctionSlice.actions.getMyAuctionsSuccess(response.data.items));
   } catch (error) {
     dispatch(auctionSlice.actions.getMyAuctionsFailed());
     console.error(error);
-  } 
+  }
 };
 export const republishAuction = (id, data) => async (dispatch) => {
   dispatch(auctionSlice.actions.republishItemRequest());
   try {
     const response = await axios.put(
-      `http://localhost:5000/api/v1/auction/republish/${id}`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/auction/republish/${id}`,
       data,
       {
         withCredentials: true,
@@ -183,7 +183,7 @@ export const deleteAuction = (id) => async (dispatch) => {
   dispatch(auctionSlice.actions.deleteAuctionItemRequest());
   try {
     const response = await axios.delete(
-      `http://localhost:5000/api/v1/auction/delete/${id}`,
+      `https://online-auction-system-backend-pcyr.onrender.com/api/v1/auction/delete/${id}`,
       {
         withCredentials: true,
       }
