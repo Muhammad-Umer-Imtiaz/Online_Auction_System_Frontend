@@ -28,9 +28,9 @@ import { getAllAuctionItems } from './store/slice/auctionSlice';
 import { getAllCategories } from './store/slice/categorySlice';
 import DashboardUser from './Pages/AdminDashboard/DashboardUser';
 import UpdatePassword from './Pages/UserDashboard/UpdatePassword';
-import UpcomingAuctions from './Components/UpcomingAuctions';
 import ForgetPassword from './Pages/ForgetPassword';
 import ResetPassword from './Pages/ResetPassword';
+import UpcomingAuctions from './Components/UpcomingAuctions';
 
 const App = () => {
   const dispatch = useDispatch();
