@@ -3,10 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
-
 import HomePage from './Pages/HomePage';
 import LoginPage from "./Pages/LoginPage";
 import SignupPage from './Pages/SignupPage';
@@ -25,13 +23,12 @@ import DeleteAuction from './Pages/AdminDashboard/DeleteAuction';
 import AdminLayout from './Layout/AdminLayout';
 import Category from './Pages/AdminDashboard/category';
 import Contact from './Pages/Contact';
-
 import { loadUser, fetchLeaderboard } from './store/slice/userSlice';
 import { getAllAuctionItems } from './store/slice/auctionSlice';
 import { getAllCategories } from './store/slice/categorySlice';
 import DashboardUser from './Pages/AdminDashboard/DashboardUser';
 import UpdatePassword from './Pages/UserDashboard/UpdatePassword';
-import UpcomingAuctions from './Components/upcomingAuctions';
+import UpcomingAuctions from './Components/UpcomingAuctions';
 import ForgetPassword from './Pages/ForgetPassword';
 import ResetPassword from './Pages/ResetPassword';
 
@@ -87,7 +84,7 @@ const App = () => {
         </div>
 
         {/* Footer */}
-        <Footer  />
+        <Footer />
       </div>
 
       <ToastContainer position='top-right' />
