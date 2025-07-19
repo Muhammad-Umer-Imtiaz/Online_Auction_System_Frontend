@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="hidden md:flex gap-6 text-gray-700 font-medium text-base">
         <Link
           to="/auction"
-          className="hover:text-blue-600 hover:underline underline-offset-4 transition duration-200"
+          className="hover:text-blue-600 hover:underline underline-offset-8 transition duration-900"
         >
           Auctions
         </Link>
@@ -46,8 +46,8 @@ const Navbar = () => {
       {/* Dashboard Link */}
       {isAuthenticated ? (
         <div
-          onClick={() => navigate(user?.role === "user" ? "/user/profile" : "/admin/user-dashboard")}
-          className="cursor-pointer font-medium text-blue-600"
+          onClick={() => navigate(user?.role === "admin" ? "/admin/user-dashboard" : "/user/profile")}
+          className="cursor-pointer font-medium text-blue-600 border rounded-md py-2 px-1 "
         >
           {user?.role === "user" ? "User Dashboard" : "Admin Dashboard"}
         </div>

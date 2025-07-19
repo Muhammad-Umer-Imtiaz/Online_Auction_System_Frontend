@@ -34,7 +34,7 @@ const UpdatePassword = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 w-full py-12 px-4">
+        <div className="min-h-screen flex items-center justify-center  w-full py-12 px-4">
             <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 border border-blue-100">
                 <h2 className="text-2xl font-bold text-blue-700 mb-6 text-center">Update Password</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">

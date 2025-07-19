@@ -29,8 +29,8 @@ const Footer = () => {
         <div>
           <h4 className="text-lg font-semibold mb-3">Legal</h4>
           <ul className="space-y-2 text-sm text-gray-300">
-            <li><Link to="/privacy" className="hover:text-[#D6482B]">Privacy Policy</Link></li>
-            <li><Link to="/terms" className="hover:text-[#D6482B]">Terms & Conditions</Link></li>
+            <li><Link className="hover:text-[#D6482B]">Privacy Policy</Link></li>
+            <li><Link  className="hover:text-[#D6482B]">Terms & Conditions</Link></li>
           </ul>
         </div>
 
@@ -38,9 +38,9 @@ const Footer = () => {
         <div>
           <h4 className="text-lg font-semibold mb-3">Follow Us</h4>
           <div className="flex gap-4">
-            <a href="#" className="text-gray-300 hover:text-[#D6482B] text-xl"><FaFacebook /></a>
-            <a href="#" className="text-gray-300 hover:text-[#D6482B] text-xl"><FaTwitter /></a>
-            <a href="#" className="text-gray-300 hover:text-[#D6482B] text-xl"><FaInstagram /></a>
+            <a href="https://web.facebook.com/?_rdc=1&_rdr#" target="_blank" className="text-gray-300 hover:text-[#D6482B] text-xl"><FaFacebook /></a>
+            <a href="https://x.com/SardarS71494323" target="_blank" className="text-gray-300 hover:text-[#D6482B] text-xl"><FaTwitter /></a>
+            <a href="https://www.instagram.com/" target="_blank" className="text-gray-300 hover:text-[#D6482B] text-xl"><FaInstagram /></a>
           </div>
         </div>
       </div>

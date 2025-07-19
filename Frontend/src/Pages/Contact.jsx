@@ -42,8 +42,8 @@ const Contact = () => {
   };
 
   return (
-    <section className="w-full min-h-screen bg-[#f5f5f5] flex items-center justify-center px-4 py-20">
-      <div className="w-full max-w-3xl bg-white shadow-2xl rounded-2xl p-10">
+    <section className="w-full min-h-screen  flex items-center justify-center px-4 py-20">
+      <div className="w-full max-w-3xl bg-transparent shadow-2xl rounded-2xl p-10">
         <h2 className="text-4xl font-bold text-center text-[#D6482B] mb-8">Contact Us</h2>
 
         <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleContactForm}>

@@ -3,11 +3,21 @@ import { useNavigate } from "react-router-dom";
 import Hero from "../assets/Hero.png";
 import GraphemeSplitter from "grapheme-splitter"; // npm i grapheme-splitter
 import { TypeAnimation } from "react-type-animation"; // npm i react-type-animation
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const HeroSection = () => {
   const splitter = new GraphemeSplitter();
   const navigate = useNavigate();
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const handleJoinAuction = () => {
+    if (!isAuthenticated) {
+      toast.error("Please Login to Create Auction");
+      navigate("/login");
+    }
+    navigate("/user/create-auction");
 
+  }
   return (
     <section className=" py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
@@ -32,7 +42,7 @@ const HeroSection = () => {
               2000,
               "Congargulation Product is Yours",
               2000,
-              
+
             ]}
             wrapper="span"
             speed={50}
@@ -45,12 +55,20 @@ const HeroSection = () => {
             experience thrilling auctions and win incredible treasures.
           </p>
 
-          <button
-            onClick={() => navigate("/user/create-auction")}
-            className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white text-base font-medium px-6 py-3 rounded-xl shadow transition duration-300"
-          >
-            Join Auction
-          </button>
+          {/* Button Section */}
+          {user?.role !== "admin" ? (
+            <button
+              onClick={handleJoinAuction}
+              className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white text-base font-medium px-6 py-3 rounded-xl shadow transition duration-300"
+            >
+              Join Auction
+            </button>
+          ) : (
+            <div className="mt-4 text-blue-700 text-base font-semibold">
+              Hello Admin 👋 – Manage Auctions from the Dashboard.
+            </div>
+          )}
+
         </div>
 
         {/* Right: Hero Image */}

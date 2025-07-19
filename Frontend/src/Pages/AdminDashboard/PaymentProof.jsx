@@ -36,7 +36,7 @@ const PaymentProof = () => {
   return (
     <>
       <div className="overflow-x-auto mx-auto mt-8">
-        <table className="min-w-full bg-white mt-5 border">
+        <table className="min-w-full bg-transparent mt-5 border">
           <thead className="bg-gray-800 text-white">
             <tr>
               <th className="w-1/3 py-3 border px-2">User ID</th>

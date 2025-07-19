@@ -4,29 +4,30 @@ const HowItWork = () => {
   const processList = [
     {
       id: "01",
-      title: "Sign up",
-      desc: "Sign your car up via our contact form or via the WhatsApp chat on the website. Send us a couple of pictures of the car that you want to put up for auction.",
+      title: "User Registration",
+      desc: "Start by creating an account by providing your username, email, password, and a profile image. This gives you access to all auction features including bidding and listing items.",
       cover: "https://rainbowthemes.net/themes/nuron/wp-content/uploads/2023/01/shape-7.png",
     },
     {
       id: "02",
-      title: "Auction goes online",
-      desc: "As soon as we collect enough cars for the auction (we strive for 25 to 40 cars per auction), the auction will show up on the website.",
+      title: "Create an Auction",
+      desc: "Once registered, you can create an auction by submitting item details, images, and a starting time. If the start time is in the future, your auction will be listed under 'Upcoming Auctions' and will automatically go live at the scheduled time.",
       cover: "https://rainbowthemes.net/themes/nuron/wp-content/uploads/2023/09/auction.png",
     },
     {
       id: "03",
-      title: "Closing auction",
-      desc: "After the viewing day(s) the auction is still a few days open for new bids. We evaluate the highest bid after the closing of an auction.",
+      title: "Live Bidding",
+      desc: "When the auction starts, it becomes available for bidding. Registered users can place bids in real-time until the auction ends. The highest bidder at the closing time wins the item.",
       cover: "https://rainbowthemes.net/themes/nuron/wp-content/uploads/2023/09/auction-2.png",
     },
     {
       id: "04",
-      title: "The last steps",
-      desc: "After the car is sold to the highest bidder, all the cars will be collected by the buyers on a determined date.",
+      title: "Payment & Handover",
+      desc: "After the auction ends, the winning bidder must contact the item owner to arrange payment and delivery or pickup. Online Payment is also accepted our system provide you a number of both User and Product Owner.",
       cover: "https://rainbowthemes.net/themes/nuron/wp-content/uploads/2023/09/auction-3.png",
     },
   ];
+
 
   return (
     <section className="relative bg-[#265A4D] py-20 px-4">
@@ -35,8 +36,7 @@ const HowItWork = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto text-white">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-2">How It Works</h2>
-          <p className="text-lg text-gray-200">Easy 4 Steps to Win</p>
+          <h2 className="text-4xl font-bold mb-2 py-4">How It Works</h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">

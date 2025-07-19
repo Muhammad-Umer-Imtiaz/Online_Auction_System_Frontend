@@ -47,7 +47,7 @@ const DashboardUser = () => {
     };
 
     return (
-        <div className="p-4 sm:p-6 max-w-7xl mx-auto">
+        <div className="p-4 sm:p-6 max-w-full overflow-x-auto mx-auto">
             <h1 className="text-3xl font-bold mb-6 text-center text-blue-800">Admin - Manage Users</h1>
 
             <div className="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">

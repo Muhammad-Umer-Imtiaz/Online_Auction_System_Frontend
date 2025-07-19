@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+// AuctionCard Component
 const AuctionCard = ({ auction }) => {
   return (
     <Link
@@ -38,22 +39,23 @@ const AuctionCard = ({ auction }) => {
   );
 };
 
+// Main Component
 const UpcomingAuctions = () => {
   const { allAuctions } = useSelector((state) => state.auction);
 
-  const today = new Date();
-  const todayString = today.toDateString();
+  const now = new Date();
 
-  const auctionsStartingToday = allAuctions.filter((item) => {
-    const auctionDate = new Date(item.startTime);
-    return auctionDate.toDateString() === todayString;
+  // Filter only future auctions
+  const upcomingAuctions = allAuctions.filter((auction) => {
+    const startDate = new Date(auction.startTime);
+    return startDate > now;
   });
 
   return (
     <section className="w-full px-4 py-10 lg:px-12 min-h-[60vh]">
       <div className="text-center mb-8">
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
-          🔥 Upcoming Auctions and Today Auction
+          🔥 Upcoming Auctions
         </h2>
         <p className="text-gray-600 text-base sm:text-lg">
           Don't miss out – grab your chance to win!
@@ -61,13 +63,13 @@ const UpcomingAuctions = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {auctionsStartingToday.length > 0 ? (
-          auctionsStartingToday.map((auction) => (
+        {upcomingAuctions.length > 0 ? (
+          upcomingAuctions.map((auction) => (
             <AuctionCard key={auction._id} auction={auction} />
           ))
         ) : (
           <div className="col-span-full text-center text-gray-500 text-lg font-medium py-10">
-            No auctions are starting today.
+            No upcoming auctions found.
           </div>
         )}
       </div>

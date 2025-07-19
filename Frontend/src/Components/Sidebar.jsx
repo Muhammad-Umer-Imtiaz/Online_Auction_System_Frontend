@@ -8,9 +8,8 @@ import { MdOutlineCreate, MdLogout } from "react-icons/md";
 import { LuSend } from "react-icons/lu";
 import { TbPasswordUser } from "react-icons/tb";
 
-
 const navLinkStyles = ({ isActive }) =>
-  `flex items-center gap-3 py-3.5 px-4 md:px-6 w-full rounded-r-xl transition-all duration-200 font- border-b
+  `flex items-center justify-center md:justify-start gap-3 py-3.5 px-2 md:px-6 w-full rounded-r-xl transition-all duration-200 font-medium border-b
    ${isActive ? "bg-blue-100 text-blue-700 border-r-4 border-blue-600" : "hover:bg-blue-50 text-gray-600"}`;
 
 const Sidebar = () => {
@@ -24,13 +23,15 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="min-h-screen h-full bg-white border-r shadow-lg w-full max-w-[240px] p-4">
-      {/* Profile Info */}
-      <div className="flex flex-col items-center mb-6">
+    <aside className="h-screen bg-white border-r shadow-lg w-16 md:w-64 p-2 md:p-4 flex flex-col">
+      
+
+      {/* Profile Info (Hidden on small screens) */}
+      <div className="hidden md:flex flex-col items-center mb-6">
         <img
           src={user?.profileImage?.url || "/default-profile.png"}
           alt="Profile"
-          className="w-20 h-20 rounded-full object-cover shadow-md mb-2"
+          className="w-20 h-20 rounded-full object-cover shadow-md mb-2 "
         />
         <p className="text-sm font-semibold text-gray-800">{user?.userName || "User"}</p>
         <p className="text-xs text-gray-500">{user?.email || "Email"}</p>
@@ -57,6 +58,7 @@ const Sidebar = () => {
           <LuSend className="w-5 h-5" />
           <span className="hidden md:inline">Submit Commission</span>
         </NavLink>
+
         <NavLink to="/user/update-password" className={navLinkStyles}>
           <TbPasswordUser className="w-5 h-5" />
           <span className="hidden md:inline">Update Password</span>
@@ -64,7 +66,7 @@ const Sidebar = () => {
 
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 py-3.5 px-4 md:px-6 w-full rounded-r-xl transition-all duration-200 text-gray-600 hover:bg-red-50 hover:text-red-600"
+          className="flex items-center justify-center md:justify-start gap-3 py-3.5 px-2 md:px-6 w-full rounded-r-xl transition-all duration-200 text-gray-600 hover:bg-red-50 hover:text-red-600"
         >
           <MdLogout className="w-5 h-5" />
           <span className="hidden md:inline">Logout</span>

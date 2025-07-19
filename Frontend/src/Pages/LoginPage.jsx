@@ -34,10 +34,10 @@ const LoginPage = () => {
   }, [isAuthenticated, loading, dispatch, navigate]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200 px-4">
-      <div className="w-full max-w-md bg-white rounded-xl shadow-md p-8">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Admin Login
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="w-full max-w-md bg-transparent rounded-xl shadow-md p-8">
+        <h2 className="text-2xl  font-bold text-center text-gray-800 mb-6">
+          Login to Access Featues
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">

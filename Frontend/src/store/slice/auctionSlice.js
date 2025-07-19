@@ -55,27 +55,27 @@ const auctionSlice = createSlice({
       state.auctionDetail = action.payload.auctionItem;
       state.auctionBidders = action.payload.bidders;
     },
-    getAuctionDetailFailed(state, action) {
+    getAuctionDetailFailed(state) {
       state.loading = false;
       state.auctionDetail = state.auctionDetail;
       state.auctionBidders = state.auctionBidders;
     },
-    deleteAuctionItemRequest(state, action) {
+    deleteAuctionItemRequest(state) {
       state.loading = true;
     },
-    deleteAuctionItemSuccess(state, action) {
+    deleteAuctionItemSuccess(state) {
       state.loading = false;
     },
-    deleteAuctionItemFailed(state, action) {
+    deleteAuctionItemFailed(state) {
       state.loading = false;
     },
     republishItemRequest(state, action) {
       state.loading = true;
     },
-    republishItemSuccess(state, action) {
+    republishItemSuccess(state) {
       state.loading = false;
     },
-    republishItemFailed(state, action) {
+    republishItemFailed(state) {
       state.loading = false;
     },
     resetSlice(state) {

@@ -18,9 +18,6 @@ const SingleAuctionDetail = () => {
   const [mainImage, setMainImage] = useState('');
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/');
-    }
     if (id) {
       dispatch(getAuctionDetail(id));
     }
@@ -34,7 +31,7 @@ const SingleAuctionDetail = () => {
 
   const handleBid = () => {
     const numericBid = parseFloat(amount);
-    const currentBid = auctionDetail.highestBid || auctionDetail.startingBid;
+    const currentBid = auctionDetail.currentBid || auctionDetail.startingBid;
     if (numericBid <= 0 || isNaN(numericBid)) return;
     if (numericBid <= currentBid) {
       alert('Bid must be higher than the current highest bid.');
@@ -52,7 +49,7 @@ const SingleAuctionDetail = () => {
     new Date(auctionDetail.endTime) > Date.now();
 
   const isAuctionNotStarted = new Date(auctionDetail.startTime) > Date.now();
-  const isAuctionEnded = new Date(auctionDetail.endTime) < Date.now();
+  // const isAuctionEnded = new Date(auctionDetail.endTime) < Date.now();
 
   return (
     <section className="w-full px-5 pt-24 pb-24 bg-gradient-to-br from-gray-50 to-white min-h-screen">
@@ -136,80 +133,67 @@ const SingleAuctionDetail = () => {
               <div className="bg-gradient-to-r from-[#D6482B] to-[#A93226] px-6 py-4 text-white font-semibold text-lg">
                 Bidders
               </div>
+
+              {/* ✅ Bidder History Visible for Live + Ended Auctions */}
               <div className="px-6 py-4 max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#D6482B]/50 scrollbar-track-gray-100">
-                {isAuctionLive ? (
-                  auctionBidders?.length > 0 ? (
-                    auctionBidders.map((bidder, i) => (
-                      <div key={i} className="flex justify-between items-center py-3 border-b border-gray-100">
-                        <div className="flex items-center gap-4">
-                          <img
-                            src={bidder.profileImage || '/default.jpg'}
-                            alt="user"
-                            className="w-12 h-12 rounded-full object-cover border"
-                          />
-                          <div>
-                            <p className="font-medium">{bidder.userName}</p>
-                            <p className="text-sm text-gray-600">Rs. {bidder.amount}</p>
-                          </div>
+                {isAuctionNotStarted ? (
+                  <div className="text-center text-gray-500 py-6">Auction has not started yet.</div>
+                ) : auctionBidders?.length > 0 ? (
+                  auctionBidders.map((bidder, i) => (
+                    <div key={i} className="flex justify-between items-center py-3 border-b border-gray-100">
+                      <div className="flex items-center gap-4">
+                        <img
+                          src={bidder.profileImage || '/default.jpg'}
+                          alt="user"
+                          className="w-12 h-12 rounded-full object-cover border"
+                        />
+                        <div>
+                          <p className="font-medium">{bidder.userName}</p>
+                          <p className="text-sm text-gray-600">Rs. {bidder.amount}</p>
                         </div>
-                        <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
-                          i === 0 ? 'bg-green-100 text-green-700' :
-                          i === 1 ? 'bg-blue-100 text-blue-700' :
-                          i === 2 ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700'
-                        }`}>
-                          {i + 1}{i === 0 ? 'st' : i === 1 ? 'nd' : i === 2 ? 'rd' : 'th'}
-                        </span>
                       </div>
-                    ))
-                  ) : (
-                    <p className="text-center text-gray-500 py-6">No bids placed yet.</p>
-                  )
-                ) : isAuctionNotStarted ? (
-                  <div className="flex justify-center py-6">
-                    <img
-                      src="/notStarted.png"
-                      alt="Auction Not Started"
-                      className="max-w-xs w-full object-contain"
-                    />
-                  </div>
+                      <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
+                        i === 0 ? 'bg-green-100 text-green-700' :
+                        i === 1 ? 'bg-blue-100 text-blue-700' :
+                        i === 2 ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700'
+                      }`}>
+                        {i + 1}{i === 0 ? 'st' : i === 1 ? 'nd' : i === 2 ? 'rd' : 'th'}
+                      </span>
+                    </div>
+                  ))
                 ) : (
-                  <div className="flex justify-center py-6">
-                    <img
-                      src="/auctionEnded.png"
-                      alt="Auction Ended"
-                      className="max-w-xs w-full object-contain"
-                    />
-                  </div>
+                  <p className="text-center text-gray-500 py-6">No bids placed yet.</p>
                 )}
               </div>
 
-              {/* Bid Section */}
+              {/* ✅ Only show bid input if auction is live */}
               {isAuctionLive && (
-                <div className="flex flex-col sm:flex-row items-center justify-between px-6 py-4 bg-gradient-to-r from-[#D6482B] to-[#A93226] text-white gap-3">
+                <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 px-6 py-6 bg-gradient-to-r from-[#D6482B] to-[#A93226] text-white rounded-b-xl">
                   <div>
                     <p className="text-sm">Current Highest Bid</p>
                     <p className="text-xl font-bold">Rs. {auctionDetail.currentBid || auctionDetail.startingBid}</p>
                   </div>
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 w-full sm:w-auto">
                     <input
                       type="number"
-                      className="w-28 sm:w-32 px-3 py-2 rounded-lg bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D6482B]"
+                      className="w-full sm:w-32 px-4 py-2 rounded-lg bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D6482B]"
                       placeholder="Your Bid"
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
                     />
                     <button
                       onClick={handleBid}
-                      className="p-3 bg-black rounded-full hover:bg-gray-800 transition"
+                      className="p-3 bg-black rounded-full hover:bg-gray-800 transition flex-shrink-0"
                     >
                       <RiAuctionFill className="text-white text-xl" />
                     </button>
                   </div>
                 </div>
               )}
-              {!isAuctionLive && (
+
+              {!isAuctionLive && !isAuctionNotStarted && (
                 <div className="text-center py-6 font-semibold text-gray-800 bg-gray-50">
-                  {isAuctionNotStarted ? "Auction has not started yet" : "Auction has ended"}
+                  Auction has ended
                 </div>
               )}
             </div>

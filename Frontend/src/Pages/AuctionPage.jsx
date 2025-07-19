@@ -44,7 +44,7 @@ const AuctionPage = () => {
   };
 
   return (
-    <section className="w-full h-full px-4 pt-8 bg-[#f9f9f9] min-h-screen">
+    <section className="w-full h-full px-4 pt-8  min-h-screen">
       {loading ? (
         <div className="flex justify-center items-center min-h-[50vh]">
           <Spinner />

@@ -26,8 +26,8 @@ const SubmitComission = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 space-y-8 border border-blue-100">
+    <div className="min-h-screen w-full flex items-center justify-center   py-12 px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md bg-transparent rounded-2xl shadow-2xl p-8 space-y-8 border border-blue-100">
         <h2 className="text-3xl font-extrabold text-blue-700 text-center tracking-tight">
           Submit Commission Proof
         </h2>
