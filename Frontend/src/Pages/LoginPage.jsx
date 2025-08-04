@@ -30,7 +30,6 @@ const LoginPage = () => {
     if (isAuthenticated) {
       navigate('/');
     }
-    console.log("user is Authenticated", isAuthenticated);
   }, [isAuthenticated, loading, dispatch, navigate]);
 
   return (

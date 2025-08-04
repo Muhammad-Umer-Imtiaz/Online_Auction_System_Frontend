@@ -98,13 +98,11 @@ export const getAllAuctionItems = () => async (dispatch) => {
         withCredentials: true,
       }
     );
-    console.log(response);
     dispatch(
       auctionSlice.actions.getAllAuctionItemSuccess(response.data.items)
     );
   } catch (error) {
     dispatch(auctionSlice.actions.getAllAuctionItemFailed());
-    console.error(error);
   }
 };
 export const getAuctionDetail = (id) => async (dispatch) => {

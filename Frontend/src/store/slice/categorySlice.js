@@ -35,7 +35,6 @@ export const getAllCategories = () => async (dispatch) => {
     dispatch(categorySlice.actions.getAllCategorySuccess(res.data.categories));
   } catch (error) {
     dispatch(categorySlice.actions.categoryFailed());
-    toast.error(error.response?.data?.message || "Failed to load categories");
   }
 };
 
